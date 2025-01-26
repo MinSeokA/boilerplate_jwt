@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiLink, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 
 class HealthCheckResponseDto {
   message: string;
@@ -10,11 +10,6 @@ class HealthCheckResponseDto {
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
-  @Get()
-  getHello() {
-    return this.appService.getHello();
-  }
 
   @Get('health')
   @ApiOperation({

@@ -1,10 +1,10 @@
-import { Module } from '@nestjs/common'
-import { ConfigModule, ConfigService } from '@nestjs/config'
-import { CacheModule } from '@nestjs/cache-manager'
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CacheModule } from '@nestjs/cache-manager';
+import { createKeyv } from '@keyv/redis';
 
-import { createKeyv } from '@keyv/redis'
-
-import { AppController } from './app.controller'
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -12,10 +12,10 @@ import { AppController } from './app.controller'
       isGlobal: true,
       envFilePath: ['.env.development', '.env'],
     }),
-    process.env.ENABLE_REDIS === '1'
-      ? CacheModule.registerAsync({
+    process.env.EANBLE_REDIS === '1'
+      ? CacheModule.register({
           useFactory: async (configService: ConfigService) => ({
-            stores: [createKeyv(configService.getOrThrow('REDIS_URI'))],
+            stores: [createKeyv(configService.getOrThrow('REDIS_URL'))],
           }),
           inject: [ConfigService],
           isGlobal: true,
@@ -26,5 +26,6 @@ import { AppController } from './app.controller'
     AppModule,
   ],
   controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

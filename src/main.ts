@@ -24,6 +24,10 @@ async function bootstrap() {
 
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('docs', app, document);
+    document.paths = Object.keys(document.paths).reduce((acc, path) => {
+      acc[`/api${path}`] = document.paths[path];
+      return acc;
+    }, {});
     NestjsRedoxModule.setup('redoc', app, document, {
       standalone: true,
     });
