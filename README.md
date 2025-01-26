@@ -13,3 +13,22 @@ NestJS를 사용하여 확장 가능하고 유지 관리 가능한 애플리케�
 - TypeORM ready
 
 ---
+
+## 🛠️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MinSeokA/boilerplate.git
+   cd boilerplate
+   ```
+
+---
+
+
+
+
+
+
+## 라이선스
+
+이 프로젝트는 [MIT 라이선스](https://opensource.org/licenses/MIT)에 따라 제공됩니다.
