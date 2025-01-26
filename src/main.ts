@@ -5,6 +5,7 @@ import { NestjsRedoxModule } from 'nestjs-redox';
 import { GlobalExceptionFilter } from './utils/filters/exception.filters';
 import { TransformInterceptor } from './utils/interceptors/transform.interceptors';
 import { ValidationPipe } from '@nestjs/common';
+import { version } from '../package.json';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -17,7 +18,7 @@ async function bootstrap() {
     const options = new DocumentBuilder()
       .setTitle('NestJS API Boilerplate')
       .setDescription('NestJS API Boilerplate with Swagger')
-      .setVersion('1.0.0')
+      .setVersion(version)
       .addTag('Utility - Health Check API')
       .build();
 
