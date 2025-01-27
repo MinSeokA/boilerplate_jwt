@@ -16,7 +16,7 @@ async function bootstrap() {
     const { SwaggerModule, DocumentBuilder } = await import('@nestjs/swagger');
 
     const options = new DocumentBuilder()
-      .setTitle('NestJS API Boilerplate')
+      .setTitle('Nest API Boilerplate')
       .setDescription('NestJS API Boilerplate with Swagger')
       .setVersion(version)
       .addTag('Utility - Health Check API')
