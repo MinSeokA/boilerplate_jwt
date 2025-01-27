@@ -1,7 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ApiLink, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
-import { User } from './plugins/decorators/user.decorator';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 class HealthCheckResponseDto {
   message: string;
