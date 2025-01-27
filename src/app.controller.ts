@@ -14,7 +14,7 @@ export class AppController {
   @Get('health')
   @ApiOperation({
     summary: 'Health Check',
-    description: '서버 상태를 확인합니다.',
+    description: 'API 서버 상태를 확인합니다.',
   })
   getHealth(): HealthCheckResponseDto {
     return this.appService.getHealth();
