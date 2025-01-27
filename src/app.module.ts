@@ -15,7 +15,7 @@ import { AppService } from './app.service';
     process.env.EANBLE_REDIS === '1'
       ? CacheModule.register({
           useFactory: async (configService: ConfigService) => ({
-            stores: [createKeyv(configService.getOrThrow('REDIS_URL'))],
+            stores: [createKeyv(configService.getOrThrow('redis://localhost:6379'))],
           }),
           inject: [ConfigService],
           isGlobal: true,
