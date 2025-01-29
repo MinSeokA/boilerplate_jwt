@@ -7,7 +7,8 @@ NestJS를 사용하여 확장 가능하고 유지 관리 가능한 애플리케�
 ## 🚀 Features
 - Modular architecture
 - Pre-configured environment
-- JWT authentication (추가예정)
+- JWT authentication
+- Role Permissions
 - Swagger documentation
 - Logging with `winston`
 - TypeORM ready
