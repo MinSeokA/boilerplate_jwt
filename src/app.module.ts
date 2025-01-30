@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { RoleGuard } from './common/guards/role.guard';
+import { RedisModule } from './common/redis/redis.module';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { RoleGuard } from './common/guards/role.guard';
     process.env.EANBLE_REDIS === '1'
       ? CacheModule.register({
           useFactory: async (configService: ConfigService) => ({
-            stores: [createKeyv(configService.getOrThrow('redis://localhost:6379'))],
+            stores: [createKeyv(configService.getOrThrow('REDIS_URL'))],
           }),
           inject: [ConfigService],
           isGlobal: true,
@@ -40,7 +41,7 @@ import { RoleGuard } from './common/guards/role.guard';
     }),
     AuthModule,
     UsersModule,
-
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService, RoleGuard],
